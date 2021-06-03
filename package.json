@@ -1,0 +1,30 @@
+{
+  "name": "env-metrics",
+  "version": "0.0.1",
+  "description": "@noshot/env vs dotenv vs next",
+  "homepage": "https://github.com/no-shot/env-metrics",
+  "scripts": {
+    "build": "node ./utils/compress-next.js",
+    "dotenv": "node dotenv.js",
+    "gen": "node ./utils/gen.js",
+    "next": "node next.js",
+    "readme": "node ./utils/generateREADME.js",
+    "noshotenv": "node noshotenv.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:no-shot/env-metrics.git"
+  },
+  "author": "Matt Carlotta",
+  "license": "MIT",
+  "dependencies": {
+    "@noshot/env": "^1.0.1",
+    "dayjs": "^1.10.5",
+    "dotenv": "^10.0.0",
+    "dotenv-expand": "^5.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.0",
+    "terser": "^5.7.0"
+  }
+}
