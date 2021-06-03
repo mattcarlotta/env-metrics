@@ -8,7 +8,7 @@ Run individual tests by running the following commands:
 | ---------------- | ----------------------------------------------------------------------------------------------- |
 | \`dotenv\`         | Runs tests for \`dotenv\` + \`dotenv-expand\` (outputs results to \`results.json\` file as \`dotenv\`). |
 | \`next\`           | Runs tests for \`next\` (outputs results to \`results.json\` file as \`next\`).                       |
-| \`noshotenv\`          | Runs tests for \`noshotenv\` (outputs results to \`results.json\` file as \`@noshot/env\`).           |
+| \`noshotenv\`      | Runs tests for \`noshotenv\` (outputs results to \`results.json\` file as \`@noshot/env\`).           |
 | \`readme\`         | Generates a \`README.md\` from the \`results.json\` file.                                           |
 
 ⚠️ Warning: The tests can take a quite a long time to complete! Adjust the [iterations](https://github.com/no-shot/env-metrics/blob/main/config/iterationsConfig.js) or [runs](https://github.com/no-shot/env-metrics/blob/main/config/runsConfig.js) if needed.
