@@ -11,7 +11,7 @@ Run individual tests by running the following commands:
 | `noshotenv`          | Runs tests for `noshotenv` (outputs results to `results.json` file as `@noshot/env`).           |
 | `readme`         | Generates a `README.md` from the `results.json` file.                                           |
 
-⚠️ Warning: The tests can take a quite a long time to complete! Adjust the [iterations](https://github.com/no-shot/noshot/env-metrics/blob/main/config/iterationsConfig.js) or [runs](https://github.com/no-shot/noshot/env-metrics/blob/main/config/runsConfig.js) if needed.
+⚠️ Warning: The tests can take a quite a long time to complete! Adjust the [iterations](https://github.com/no-shot/env-metrics/blob/main/config/iterationsConfig.js) or [runs](https://github.com/no-shot/env-metrics/blob/main/config/runsConfig.js) if needed.
 
 
 ## Metrics
@@ -25,7 +25,7 @@ Run individual tests by running the following commands:
 - OS: Linuxmint 20.1 ulyssa
 - Kernel: Linux 5.8.0-53-generic x86_64
 
-**Compiled Timestamp**: Thursday, June 3, 2021 11:56 AM
+**Compiled Timestamp**: Thursday, June 3, 2021 11:58 AM
 
 Loading and interpolating a single [small env file](https://github.com/no-shot/env-metrics/blob/main/.env):
 | package | run timestamp | iterations | duration (3 fastest runs out of 6) | avg | fastest |

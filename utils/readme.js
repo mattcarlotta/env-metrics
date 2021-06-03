@@ -11,7 +11,7 @@ Run individual tests by running the following commands:
 | \`noshotenv\`          | Runs tests for \`noshotenv\` (outputs results to \`results.json\` file as \`@noshot/env\`).           |
 | \`readme\`         | Generates a \`README.md\` from the \`results.json\` file.                                           |
 
-⚠️ Warning: The tests can take a quite a long time to complete! Adjust the [iterations](https://github.com/no-shot/noshot/env-metrics/blob/main/config/iterationsConfig.js) or [runs](https://github.com/no-shot/noshot/env-metrics/blob/main/config/runsConfig.js) if needed.
+⚠️ Warning: The tests can take a quite a long time to complete! Adjust the [iterations](https://github.com/no-shot/env-metrics/blob/main/config/iterationsConfig.js) or [runs](https://github.com/no-shot/env-metrics/blob/main/config/runsConfig.js) if needed.
 
 
 ## Metrics
