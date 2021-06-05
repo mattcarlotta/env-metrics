@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@noshot/env@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@noshot/env/-/env-1.0.1.tgz#c643864ce8d7678b22157d5f5229da341446e54b"
-  integrity sha512-YCiEXmr6w6H+YmYu+CbgJvRv4aydyQIV3NXbBMwiLoIEHlId5oyhXjNjDwi8utz+gi8YjfTBoQSXJtal96LvkQ==
+"@noshot/env@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@noshot/env/-/env-2.0.0.tgz#3879f86db4d2f3c66d060098c1edf8864ca1c55a"
+  integrity sha512-295i9M6U/GVJywTvwdPleZNXAV8v/ROu4c2RyEOuRkdnMHBvgsYtjoXVJfQ7VzzgH/7TlqAbh9QtLj8iwnR26A==
 
 buffer-from@^1.0.0:
   version "1.1.1"
