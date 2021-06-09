@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@noshot/env@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@noshot/env/-/env-2.0.0.tgz#3879f86db4d2f3c66d060098c1edf8864ca1c55a"
-  integrity sha512-295i9M6U/GVJywTvwdPleZNXAV8v/ROu4c2RyEOuRkdnMHBvgsYtjoXVJfQ7VzzgH/7TlqAbh9QtLj8iwnR26A==
+"@noshot/env@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@noshot/env/-/env-2.1.0.tgz#ff460808475bea97f39e86b408b8ab160115ad4e"
+  integrity sha512-Aymf+n0+O9p55pSXvYbBOrOecR577UszTvlNKCSmA6T8CD5DrLRzErt3wFslEQLoOd2ePErs1tWXRBiHxF3RjQ==
 
 buffer-from@^1.0.0:
   version "1.1.1"
@@ -32,10 +32,10 @@ dotenv@^10.0.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
   integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
-prettier@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.0.tgz#b6a5bf1284026ae640f17f7ff5658a7567fc0d18"
-  integrity sha512-kXtO4s0Lz/DW/IJ9QdWhAf7/NmPWQXkFr/r/WkR3vyI+0v8amTDxiaQSLzs8NBlytfLWX/7uQUMIW677yLKl4w==
+prettier@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
+  integrity sha512-p+vNbgpLjif/+D+DwAZAbndtRrR0md0MwfmOVN9N+2RgyACMT+7tfaRnT+WDPkqnuVwleyuBIG2XBxKDme3hPA==
 
 source-map-support@~0.5.19:
   version "0.5.19"
