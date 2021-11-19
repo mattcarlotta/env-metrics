@@ -25,25 +25,25 @@ Run individual tests by running the following commands:
 - OS: Linuxmint 20.1 ulyssa
 - Kernel: Linux 5.8.0-53-generic x86_64
 
-**Compiled Timestamp**: Thursday, June 10, 2021 11:38 AM
+**Compiled Timestamp**: Thursday, November 18, 2021 4:49 PM
 
 Loading and interpolating a single [small env file](https://github.com/no-shot/env-metrics/blob/main/.env):
 | package | run timestamp | iterations | duration (3 fastest runs out of 6) | avg | fastest |
 | --- | --- | --- | --- | --- | --- |
-| @noshot/env | Thursday, June 10, 2021 11:33 AM | 500000 | 11.119s, 11.199s, 11.229s | 11.182s | 100.00% |
-| dotenv | Thursday, June 3, 2021 12:07 PM | 500000 | 20.387s, 20.457s, 20.491s | 20.445s | 54.54% |
-| next | Thursday, June 3, 2021 12:19 PM | 500000 | 89.868s, 90.12s, 91.694s | 90.561s | 12.37% |
+| @noshot/env | Thursday, November 18, 2021 4:27 PM | 500000 | 11.204s, 11.23s, 11.263s | 11.232s | 100.00% |
+| dotenv | Thursday, November 18, 2021 4:37 PM | 500000 | 19.664s, 19.678s, 19.78s | 19.707s | 56.98% |
+| next | Thursday, June 3, 2021 12:19 PM | 500000 | 89.868s, 90.12s, 91.694s | 90.561s | 12.47% |
 
 Loading and interpolating a single [large env file](https://github.com/no-shot/env-metrics/blob/main/.env.interp):
 | package | run timestamp | iterations | duration (3 fastest runs out of 6) | avg | fastest |
 | --- | --- | --- | --- | --- | --- |
-| @noshot/env | Thursday, June 10, 2021 11:34 AM | 5000 | 20.333s, 20.342s, 20.379s | 20.351s | 100.00% |
-| dotenv | Thursday, June 3, 2021 12:09 PM | 5000 | 68.5s, 68.729s, 68.869s | 68.699s | 29.68% |
-| next | Thursday, June 3, 2021 12:39 PM | 5000 | 83.202s, 83.283s, 83.367s | 83.284s | 24.44% |
+| @noshot/env | Thursday, November 18, 2021 4:28 PM | 5000 | 18.861s, 18.885s, 18.922s | 18.889s | 100.00% |
+| dotenv | Thursday, November 18, 2021 4:39 PM | 5000 | 67.348s, 67.529s, 67.657s | 67.511s | 28.01% |
+| next | Thursday, June 3, 2021 12:39 PM | 5000 | 83.202s, 83.283s, 83.367s | 83.284s | 22.67% |
 
 Loading and interpolating multiple small env files ([1](https://github.com/no-shot/env-metrics/blob/main/.env), [2](https://github.com/no-shot/env-metrics/blob/main/.env.development), [3](https://github.com/no-shot/env-metrics/blob/main/.env.local), [4](https://github.com/no-shot/env-metrics/blob/main/.env.development.local)):
 | package | run timestamp | iterations | duration (3 fastest runs out of 6) | avg | fastest |
 | --- | --- | --- | --- | --- | --- |
-| @noshot/env | Thursday, June 10, 2021 11:36 AM | 500000 | 20.888s, 20.934s, 20.939s | 20.92s | 100.00% |
-| dotenv | Thursday, June 3, 2021 12:16 PM | 500000 | 35.215s, 35.274s, 35.306s | 35.265s | 59.32% |
-| next | Thursday, June 3, 2021 12:28 PM | 500000 | 102.829s, 103.227s, 103.7s | 103.252s | 20.31% |
+| @noshot/env | Thursday, November 18, 2021 4:30 PM | 500000 | 20.561s, 20.648s, 20.717s | 20.642s | 100.00% |
+| dotenv | Thursday, November 18, 2021 4:46 PM | 500000 | 34.449s, 34.652s, 34.705s | 34.602s | 59.69% |
+| next | Thursday, June 3, 2021 12:28 PM | 500000 | 102.829s, 103.227s, 103.7s | 103.252s | 20.00% |

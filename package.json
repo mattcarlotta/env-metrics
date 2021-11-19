@@ -18,13 +18,13 @@
   "author": "Matt Carlotta",
   "license": "MIT",
   "dependencies": {
-    "@noshot/env": "^2.1.1",
-    "dayjs": "^1.10.5",
+    "@noshot/env": "^3.0.0",
+    "dayjs": "^1.10.7",
     "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0"
   },
   "devDependencies": {
-    "prettier": "^2.3.1",
-    "terser": "^5.7.0"
+    "prettier": "^2.4.1",
+    "terser": "^5.10.0"
   }
 }
