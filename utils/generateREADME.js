@@ -32,7 +32,7 @@ const addRowItem = item => `| ${item} `;
           if (!objectHasProperty(result, cfg))
             rej(`Unable to locate a '${cfg}' property within the results!`);
           const config = result[cfg];
-          const [fastestPackage, x, y] = Object.keys(results)
+          const [fastestPackage] = Object.keys(results)
             .map(package => results[package][cfg].fastest[0])
             .sort((a, b) => a - b);
 

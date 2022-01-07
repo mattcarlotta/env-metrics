@@ -19,11 +19,11 @@ Run individual tests by running the following commands:
 **System Specs**:
 
 - CPU: AMD Ryzen 9 5950x (stock)
-- MOBO: Asus x570 ROG Crosshair VIII Hero (WI-FI)
-- RAM: G.Skill Trident Z Neo 32 GB (4 x 8 GB) running @ 3600Mhz
+- MOBO: Asus x570 ROG Crosshair Dark Hero
+- RAM: G.Skill Trident Z Neo 32 GB (4 x 8 GB) running @ 2100Mhz
 - Storage: Sabrent 1TB Rocket 4 Plus NVMe 4.0 Gen4
-- OS: Linuxmint 20.1 ulyssa
-- Kernel: Linux 5.8.0-53-generic x86_64
+- OS: Linuxmint 20.2 ulyssa
+- Kernel: Linux 5.13.0-23-generic x86_64
 
 **Compiled Timestamp**: ${compiled}
 

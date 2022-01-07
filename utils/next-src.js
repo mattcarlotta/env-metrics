@@ -44,7 +44,7 @@ module.exports.loadEnvConfig = function loadEnvConfig(dir = "", paths = []) {
     `.env.development`,
     ".env"
   ].filter(Boolean);
-  const configPaths = paths.length ? paths : dotenvFiles;
+  const configPaths = paths.length > 0 ? paths : dotenvFiles;
 
   const cachedLoadedEnvFiles = [];
 

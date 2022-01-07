@@ -1,46 +1,23 @@
 const env = require("@noshot/env");
-const executeTest = require("./utils/executeTest");
-const writeResultToFile = require("./utils/writeResultToFile");
-const iterations = require("./config/iterationsConfig");
+const Test = require("./utils/tester");
 
-const tests = {
-  single: {},
-  interpolated: {},
-  multiple: {}
-};
+const test = new Test("@noshot/env", 6);
 
 // loading a single default .env
-let results = executeTest(logIteration => {
-  for (let i = 0; i < iterations[0]; i += 1) {
-    env.config();
-    logIteration(i, "@noshot/env", "single");
-  }
+test.start("single", 500000, () => {
+  env.config();
 });
-tests.single = results;
 
 // large interpolated .env loading
-results = executeTest(logIteration => {
-  for (let i = 0; i < iterations[1]; i += 1) {
-    env.config({ paths: [".env.interp"] });
-    logIteration(i, "@noshot/env", "interpolated");
-  }
+test.start("interpolated", 5000, () => {
+  env.config({ paths: [".env.interp"] });
 });
-tests.interpolated = results;
 
-// loading default next .env files (.env, .env.development, .env.local, .env.development.local)
-results = executeTest(logIteration => {
-  for (let i = 0; i < iterations[2]; i += 1) {
-    env.config({
-      paths: [
-        ".env",
-        ".env.development",
-        ".env.local",
-        ".env.development.local"
-      ]
-    });
-    logIteration(i, "@noshot/env", "multiple");
-  }
+// loading multiple .env files (.env, .env.development, .env.local, .env.development.local)
+test.start("multiple", 500000, () => {
+  env.config({
+    paths: [".env", ".env.development", ".env.local", ".env.development.local"]
+  });
 });
-tests.multiple = results;
 
-writeResultToFile({ "@noshot/env": tests });
+test.writeResultsToFile();

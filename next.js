@@ -1,39 +1,21 @@
 const { loadEnvConfig } = require("./utils/next-src");
-const executeTest = require("./utils/executeTest");
-const writeResultToFile = require("./utils/writeResultToFile");
-const iterations = require("./config/iterationsConfig");
+const Test = require("./utils/tester");
 
-const tests = {
-  single: {},
-  interpolated: {},
-  multiple: {}
-};
+const test = new Test("next");
 
 // loading a single default .env
-let results = executeTest(logIteration => {
-  for (let i = 0; i < iterations[0]; i += 1) {
-    loadEnvConfig(".", [".env"]);
-    logIteration(i, "next", "single");
-  }
+test.start("single", () => {
+  loadEnvConfig(".", [".env"]);
 });
-tests.single = results;
-
-// loading default next .env files (.env, .env.development, .env.local, .env.development.local)
-results = executeTest(logIteration => {
-  for (let i = 0; i < iterations[2]; i += 1) {
-    loadEnvConfig();
-    logIteration(i, "next", "multiple");
-  }
-});
-tests.multiple = results;
 
 // large interpolated .env loading
-results = executeTest(logIteration => {
-  for (let i = 0; i < iterations[1]; i += 1) {
-    loadEnvConfig(".", [".env.interp"]);
-    logIteration(i, "next", "interpolated");
-  }
+test.start("interpolated", () => {
+  loadEnvConfig(".", [".env.interp"]);
 });
-tests.interpolated = results;
 
-writeResultToFile({ next: tests });
+// loading multiple next .env files (.env, .env.development, .env.local, .env.development.local)
+test.start("multiple", () => {
+  loadEnvConfig();
+});
+
+test.writeResultsToFile();

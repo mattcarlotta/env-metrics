@@ -19,31 +19,31 @@ Run individual tests by running the following commands:
 **System Specs**:
 
 - CPU: AMD Ryzen 9 5950x (stock)
-- MOBO: Asus x570 ROG Crosshair VIII Hero (WI-FI)
-- RAM: G.Skill Trident Z Neo 32 GB (4 x 8 GB) running @ 3600Mhz
+- MOBO: Asus x570 ROG Crosshair Dark Hero
+- RAM: G.Skill Trident Z Neo 32 GB (4 x 8 GB) running @ 2100Mhz
 - Storage: Sabrent 1TB Rocket 4 Plus NVMe 4.0 Gen4
-- OS: Linuxmint 20.1 ulyssa
-- Kernel: Linux 5.8.0-53-generic x86_64
+- OS: Linuxmint 20.2 ulyssa
+- Kernel: Linux 5.13.0-23-generic x86_64
 
-**Compiled Timestamp**: Thursday, November 18, 2021 4:49 PM
+**Compiled Timestamp**: Friday, January 7, 2022 12:44 PM
 
 Loading and interpolating a single [small env file](https://github.com/no-shot/env-metrics/blob/main/.env):
 | package | run timestamp | iterations | duration (3 fastest runs out of 6) | avg | fastest |
 | --- | --- | --- | --- | --- | --- |
-| @noshot/env | Thursday, November 18, 2021 4:27 PM | 500000 | 11.204s, 11.23s, 11.263s | 11.232s | 100.00% |
-| dotenv | Thursday, November 18, 2021 4:37 PM | 500000 | 19.664s, 19.678s, 19.78s | 19.707s | 56.98% |
-| next | Thursday, June 3, 2021 12:19 PM | 500000 | 89.868s, 90.12s, 91.694s | 90.561s | 12.47% |
+| @noshot/env | Friday, January 7, 2022 11:27 AM | 500000 | 8.785s, 8.804s, 8.805s | 8.798s | 100.00% |
+| dotenv | Friday, January 7, 2022 11:38 AM | 500000 | 18.712s, 18.866s, 18.888s | 18.822s | 46.95% |
+| next | Friday, January 7, 2022 12:09 PM | 500000 | 82.486s, 82.49s, 82.811s | 82.596s | 10.65% |
 
 Loading and interpolating a single [large env file](https://github.com/no-shot/env-metrics/blob/main/.env.interp):
 | package | run timestamp | iterations | duration (3 fastest runs out of 6) | avg | fastest |
 | --- | --- | --- | --- | --- | --- |
-| @noshot/env | Thursday, November 18, 2021 4:28 PM | 5000 | 18.861s, 18.885s, 18.922s | 18.889s | 100.00% |
-| dotenv | Thursday, November 18, 2021 4:39 PM | 5000 | 67.348s, 67.529s, 67.657s | 67.511s | 28.01% |
-| next | Thursday, June 3, 2021 12:39 PM | 5000 | 83.202s, 83.283s, 83.367s | 83.284s | 22.67% |
+| @noshot/env | Friday, January 7, 2022 11:28 AM | 5000 | 17.888s, 17.978s, 18.04s | 17.969s | 100.00% |
+| dotenv | Friday, January 7, 2022 11:40 AM | 5000 | 68.279s, 68.418s, 68.443s | 68.38s | 26.20% |
+| next | Friday, January 7, 2022 12:17 PM | 5000 | 78.481s, 78.601s, 78.815s | 78.632s | 22.79% |
 
 Loading and interpolating multiple small env files ([1](https://github.com/no-shot/env-metrics/blob/main/.env), [2](https://github.com/no-shot/env-metrics/blob/main/.env.development), [3](https://github.com/no-shot/env-metrics/blob/main/.env.local), [4](https://github.com/no-shot/env-metrics/blob/main/.env.development.local)):
 | package | run timestamp | iterations | duration (3 fastest runs out of 6) | avg | fastest |
 | --- | --- | --- | --- | --- | --- |
-| @noshot/env | Thursday, November 18, 2021 4:30 PM | 500000 | 20.561s, 20.648s, 20.717s | 20.642s | 100.00% |
-| dotenv | Thursday, November 18, 2021 4:46 PM | 500000 | 34.449s, 34.652s, 34.705s | 34.602s | 59.69% |
-| next | Thursday, June 3, 2021 12:28 PM | 500000 | 102.829s, 103.227s, 103.7s | 103.252s | 20.00% |
+| @noshot/env | Friday, January 7, 2022 11:30 AM | 500000 | 18.08s, 18.199s, 18.227s | 18.169s | 100.00% |
+| dotenv | Friday, January 7, 2022 11:47 AM | 500000 | 33.421s, 33.904s, 33.905s | 33.743s | 54.10% |
+| next | Friday, January 7, 2022 12:25 PM | 500000 | 102.523s, 104.7s, 104.884s | 104.036s | 17.64% |
