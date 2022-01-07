@@ -106,7 +106,7 @@ class Test {
       }
     });
 
-    this.run = +1;
+    this.run += 1;
   }
 
   /**
