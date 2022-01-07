@@ -66,7 +66,7 @@ class Test {
    * Runs a test function according to `this.runs` and the number of `iterations`.
    * @param {string} testType - string name of test type
    * @param {function} testfn - the test function to run
-   * @example ```test.start("test", 100, () => {});```
+   * @example ```test.start("test", () => {});```
    */
   start(testType, testFn) {
     process.env = this.processenv;
