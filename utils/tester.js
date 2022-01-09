@@ -19,7 +19,7 @@ class Test {
    * @param {string} testName - name of test
    */
   constructor(testName) {
-    this.resultfile = join(process.cwd(), "result.json");
+    this.resultFile = join(process.cwd(), "result.json");
     this.run = 0;
     this.runs = runs;
     this.iterations = iterations;
@@ -28,7 +28,7 @@ class Test {
     this.runtimes = [];
     this.date = "";
     this.processenv = process.env;
-    this.results = {
+    this.testResults = {
       single: {},
       interpolated: {},
       multiple: {}
@@ -63,9 +63,9 @@ class Test {
   }
 
   /**
-   * Runs a test function according to `this.runs` and the number of `iterations`.
+   * Runs a test function according to `this.runs` and the number of `this.iterations`.
    * @param {string} testType - string name of test type
-   * @param {function} testfn - the test function to run
+   * @param {function} testFn - the test function to run
    * @example ```test.start("test", () => {});```
    */
   start(testType, testFn) {
@@ -97,7 +97,7 @@ class Test {
     const fastest = Array.from(this.runtimes).sort().splice(0, 3);
     const avg = parseFloat((fastest.reduce((a, b) => a + b, 0) / 3).toFixed(3));
 
-    this.results = Object.assign(this.results, {
+    Object.assign(this.testResults, {
       [this.testType]: {
         date: this.date,
         runtimes: this.runtimes,
@@ -111,10 +111,10 @@ class Test {
 
   /**
    * Reads the result file.
-   * @returns the read result of the file
+   * @returns the read result of the JSON file
    */
   readResultFile() {
-    const file = readFileSync(this.resultfile, { encoding: "utf-8" });
+    const file = readFileSync(this.resultFile, { encoding: "utf-8" });
 
     return JSON.parse(file);
   }
@@ -124,19 +124,21 @@ class Test {
    */
   writeResultsToFile() {
     try {
-      let file = {};
-      if (fileExists(this.resultfile)) file = this.readResultFile();
+      let combinedFile = {};
+      if (fileExists(this.resultFile)) combinedFile = this.readResultFile();
 
-      const combinedFile = Object.assign(file, {
-        [this.testName]: this.results
+      Object.assign(combinedFile, {
+        [this.testName]: this.testResults
       });
 
-      writeFileSync(this.resultfile, JSON.stringify(combinedFile, null, 2), {
+      writeFileSync(this.resultFile, JSON.stringify(combinedFile, null, 2), {
         encoding: "utf-8"
       });
 
       this.clearConsole();
-      console.log(`\x1b[34m${JSON.stringify(this.results, null, 2)}\x1b[0m`);
+      console.log(
+        `\x1b[34m${JSON.stringify(this.testResults, null, 2)}\x1b[0m`
+      );
 
       process.exit(0);
     } catch (error) {
