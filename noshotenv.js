@@ -1,7 +1,7 @@
 const env = require("@noshot/env");
 const Test = require("./utils/tester");
 
-const test = new Test("@noshot/env", 6);
+const test = new Test("@noshot/env");
 
 // loading a single default .env
 test.start("single", () => {

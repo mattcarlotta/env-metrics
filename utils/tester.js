@@ -10,6 +10,8 @@ const fileExists = require("./fileExists");
 const iterations = require("../config/iterationsConfig");
 const runs = require("../config/runsConfig");
 
+const terminal = process.stdout;
+
 /**
  * Creates a new test with the `testName`.
  * @class
@@ -34,16 +36,16 @@ class Test {
       multiple: {}
     };
 
-    this.clearConsole();
+    this.clearTerminal();
   }
 
   /**
    * Clears the terminal.
    */
-  clearConsole() {
-    console.log("\n".repeat(process.stdout.rows));
-    readline.cursorTo(process.stdout, 0, 0);
-    readline.clearScreenDown(process.stdout);
+  clearTerminal() {
+    console.log("\n".repeat(terminal.rows));
+    readline.cursorTo(terminal, 0, 0);
+    readline.clearScreenDown(terminal);
   }
 
   /**
@@ -53,9 +55,9 @@ class Test {
    * @param {number} iteration - current test iteration
    */
   log(run, iteration) {
-    process.stdout.clearLine(1);
-    process.stdout.cursorTo(0);
-    process.stdout.write(
+    terminal.clearLine(1);
+    terminal.cursorTo(0);
+    terminal.write(
       `\x1b[33m[${this.testName}] test: ${this.testType} | run: ${run}/${
         this.runs
       } | iteration: ${iteration}/${this.iterations[this.run]} \x1b[0m`
@@ -135,7 +137,7 @@ class Test {
         encoding: "utf-8"
       });
 
-      this.clearConsole();
+      this.clearTerminal();
       console.log(
         `\x1b[34m${JSON.stringify(this.testResults, null, 2)}\x1b[0m`
       );
