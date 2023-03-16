@@ -97,6 +97,7 @@ class Test {
 
     add(testType, testFn) {
         this.testRuns.push({ testType, testFn });
+        return this;
     }
 
     run() {

@@ -3,20 +3,15 @@ const Test = require("./utils/tester");
 
 const tests = new Test("next");
 
-// loading a single default .env
 tests.add("single", () => {
+    // loading a single default .env
     loadEnvConfig(".", [".env"]);
-});
-
-// large interpolated .env loading
-tests.add("interpolated", () => {
+}).add("interpolated", () => {
+    // large interpolated .env loading
     loadEnvConfig(".", [".env.interp"]);
-});
-
-// loading multiple next .env files (.env, .env.development, .env.local, .env.development.local)
-tests.add("multiple", () => {
+}).add("multiple", () => {
+    // loading multiple next .env files (.env, .env.development, .env.local, .env.development.local)
     loadEnvConfig();
-});
+}).run();
 
-tests.run();
 tests.writeResultsToFile();
