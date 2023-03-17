@@ -19,7 +19,6 @@
   "license": "MIT",
   "dependencies": {
     "@noshot/env": "^3.0.3",
-    "dayjs": "^1.11.7",
     "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0"
   },
