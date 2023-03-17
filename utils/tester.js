@@ -1,4 +1,5 @@
 const { readFileSync, writeFileSync } = require("fs");
+const process = require("process");
 const readline = require("readline");
 const { join } = require("path");
 const {
@@ -22,20 +23,16 @@ class Test {
      */
     constructor(testName) {
         this.resultFile = join(process.cwd(), "result.json");
-        this.testRuns = [];
         this.runIteration = 0;
         this.runs = runs;
         this.iterations = iterations;
         this.testName = testName;
+        this.testRuns = [];
+        this.testResults = {};
         this.testType = "";
         this.runtimes = [];
         this.date = "";
         this.processenv = process.env;
-        this.testResults = {
-            single: {},
-            interpolated: {},
-            multiple: {}
-        };
 
         this.clearTerminal();
     }
@@ -44,7 +41,7 @@ class Test {
      * Clears the terminal.
      */
     clearTerminal() {
-        console.log("\n".repeat(terminal.rows));
+        terminal.write("\n".repeat(terminal.rows));
         readline.cursorTo(terminal, 0, 0);
         readline.clearScreenDown(terminal);
     }
@@ -60,7 +57,7 @@ class Test {
         terminal.cursorTo(0);
         terminal.write(
             `\x1b[32m[${this.testName}] test: ${this.testType} | run: ${run}/${this.runs
-            } | iteration: ${iteration}/${this.iterations[this.runIteration]
+            } | iteration: ${iteration}/${iteration
             } | elapsed: ${timeElapsed}s \x1b[0m\n`
         );
     }
@@ -71,7 +68,7 @@ class Test {
      * @param {function} testFn - the test function to run
      * @example ```test.start("test", () => {});```
      */
-    start(testType, testFn) {
+    start(testType, testFn, idx) {
         process.env = this.processenv;
         this.runtimes = [];
         this.testType = testType;
@@ -82,13 +79,13 @@ class Test {
             terminal.write(`\nRunning ${testType} run ${run}... \n`);
             for (
                 let iteration = 0;
-                iteration <= this.iterations[this.runIteration];
+                iteration <= this.iterations[idx];
                 iteration += 1
             ) {
                 testFn();
             }
             const timeElapsed = getSecondsDifference(startDate);
-            this.log(run, this.iterations[this.runIteration], timeElapsed);
+            this.log(run, this.iterations[idx], timeElapsed);
             this.runtimes.push(timeElapsed);
         }
 
@@ -103,7 +100,7 @@ class Test {
     run() {
         for (let idx = 0; idx < this.testRuns.length; idx += 1) {
             const { testType, testFn } = this.testRuns[idx];
-            this.start(testType, testFn);
+            this.start(testType, testFn, idx);
         }
     }
 
@@ -123,7 +120,6 @@ class Test {
             }
         });
 
-        this.runIteration += 1;
     }
 
     /**
@@ -131,9 +127,13 @@ class Test {
      * @returns the read result of the JSON file
      */
     readResultFile() {
-        const file = readFileSync(this.resultFile, { encoding: "utf-8" });
+        try {
+            const file = readFileSync(this.resultFile, { encoding: "utf-8" });
 
-        return JSON.parse(file);
+            return JSON.parse(file);
+        } catch (error) {
+            return {};
+        }
     }
 
     /**
@@ -141,8 +141,7 @@ class Test {
      */
     writeResultsToFile() {
         try {
-            let combinedFile = {};
-            if (fileExists(this.resultFile)) combinedFile = this.readResultFile();
+            const combinedFile = this.readResultFile();
 
             Object.assign(combinedFile, {
                 [this.testName]: this.testResults
