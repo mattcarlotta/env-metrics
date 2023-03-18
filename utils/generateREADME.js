@@ -1,7 +1,6 @@
-const { writeFileSync } = require('fs');
+const { readFileSync, writeFileSync } = require("fs");
+const { join } = require("path");
 const { createDateWithFormat } = require("./createDate");
-const fileExists = require("./fileExists");
-const { filePath, readResultFile } = require("./resultPath");
 const readme = require("./readme");
 const iterations = require("../config/iterationsConfig");
 
@@ -9,12 +8,22 @@ const runs = ["single", "interpolated", "multiple"];
 const divider = "|";
 
 const addRowItem = item => `| ${item} `;
+const readResultFile = () => {
+  try {
+    const file = readFileSync(join(process.cwd(), "result.json"), {
+      encoding: "utf-8"
+    });
+
+    return JSON.parse(file);
+  } catch (error) {
+    return null;
+  }
+};
 
 (() => {
   try {
-    if (!fileExists(filePath))
-      throw String("You must run the test suites first!");
     const results = readResultFile();
+    if (!results) throw String("You must run the test suites first!");
 
     let file = readme.head(createDateWithFormat());
 
@@ -62,7 +71,7 @@ const addRowItem = item => `| ${item} `;
       addResultsToTable("next", runs[i], i);
     }
 
-    writeFileSync("README.md", file, { encoding: 'utf-8' })
+    writeFileSync("README.md", file, { encoding: "utf-8" });
   } catch (error) {
     console.error(error);
     process.exit(1);
