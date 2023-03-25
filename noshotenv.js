@@ -3,17 +3,26 @@ const Test = require("./utils/tester");
 
 const tests = new Test("@noshot/env");
 
-tests.add("single", () => {
+tests
+  .add("single", () => {
     // loading a single default .env
     env.config();
-}).add("interpolated", () => {
+  })
+  .add("interpolated", () => {
     // large interpolated .env loading
     env.config({ paths: [".env.interp"] });
-}).add("multiple", () => {
+  })
+  .add("multiple", () => {
     // loading multiple .env files (.env, .env.development, .env.local, .env.development.local)
     env.config({
-        paths: [".env", ".env.development", ".env.local", ".env.development.local"]
+      paths: [
+        ".env",
+        ".env.development",
+        ".env.local",
+        ".env.development.local"
+      ]
     });
-}).run();
+  })
+  .run();
 
 tests.writeResultsToFile();
